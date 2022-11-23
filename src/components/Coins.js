@@ -1,35 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Context } from '../Context'
 import { StyledCoin } from './styles/Coin.styled'
 
-export default function Coin() {
-    const [plnRate, setPlnRate] = useState('')
-    const { coinsList, currency } = useContext(Context)
+export default function Coins(  {arrOfCoins} ) {
+    const { exchangeCurrency } = useContext(Context)
     
-    function getTopTen() {
-        const topTenArr = []
-        coinsList.length > 0 && coinsList.map( (coin, index) => {
-            return index < 10 ? topTenArr.push(coin) : null
-        })
-        return topTenArr
-    } 
-
-    useEffect( () => {
-        const url = 'http://api.nbp.pl/api/exchangerates/rates/c/usd/today/'
-        fetch(url)
-            .then(res => res.json())
-            .then(data => setPlnRate(data.rates[0].bid))
-            .catch(err => console.error(err))
-    }, [currency])
-    
-    function exchangeCurrency(value) {
-        return currency === "USD" 
-            ? `$${value}`
-            : `${Math.round(value * plnRate * 100) / 100}zł`
-    }
-    
-    function writeCoins() {
-        return getTopTen().map(coin => {
+    const writeCoins = arrOfCoins => {
+        return arrOfCoins.map( coin => {
             return <p className='coin' key={coin.id}>
                 <span>
                     <img 
@@ -57,7 +34,7 @@ export default function Coin() {
                     <p>24h</p>
                     <p>All Time High</p>
                 </div>
-                {writeCoins()}
+                {writeCoins(arrOfCoins)}
             </div>
         </StyledCoin>
     )

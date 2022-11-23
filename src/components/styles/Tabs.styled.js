@@ -10,6 +10,7 @@ export const StyledTabs = styled.div`
         background: transparent;
         color: #D9A21B;
         border: none;
+        cursor: pointer;
         &.active {
             font-weight: bold;
             font-size: 1rem;
