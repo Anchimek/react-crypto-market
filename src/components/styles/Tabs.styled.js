@@ -8,7 +8,7 @@ export const StyledTabs = styled.div`
     
     button {
         background: transparent;
-        color: #D9A21B;
+        color: #d49b0f;
         border: none;
         cursor: pointer;
         &.active {

@@ -18,7 +18,7 @@ export default function Coins(  {arrOfCoins} ) {
                 <span 
                     style={ { color: coin.price_change_percentage_24h < 0 ? '#E32227' : '#00A300'} }
                 >
-                    {Math.round(coin.price_change_percentage_24h * 100) / 100}%
+                    {Math.round(coin.price_change_percentage_24h * 1000) / 1000}%
                 </span>
                 <span>{exchangeCurrency(coin.ath)}</span>
             </p>

@@ -10,18 +10,21 @@ function ContextProvider(props) {
 
     useEffect( () => {
         const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false'
-        fetch(url)
+            fetch(url)
             .then(res => res.json())
             .then(data => setCoinsList(data))
             .catch(err => console.error(err))
     }, [])
 
     useEffect( () => {
-        const url = 'http://api.nbp.pl/api/exchangerates/rates/c/usd/today/'
+        const url = 'https://api.nbp.pl/api/exchangerates/rates/a/usd/'
         fetch(url)
             .then(res => res.json())
-            .then(data => setPlnRate(data.rates[0].bid))
-            .catch(err => console.error(err))
+            .then(data => setPlnRate(data.rates[0].mid))
+            .catch(err => {
+                console.error(err)
+                setPlnRate(4,7)
+            })
     }, [currency])
 
     function getCoins(amountOfCoins = 10) {
@@ -59,7 +62,8 @@ function ContextProvider(props) {
                 changeTheme,
                 coinsList,
                 exchangeCurrency,
-                getCoins
+                getCoins,
+                plnRate
             }
         }>
             {props.children}

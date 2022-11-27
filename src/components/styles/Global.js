@@ -22,6 +22,18 @@ const GlobalStyles = createGlobalStyle`
         p {
             line-height: 1.5;
         }
+
+        a,
+        a:visited,
+        a:focus,
+        a:active, 
+        a:hover {
+            text-decoration: none;
+            color: ${({ theme }) => {
+                return theme === 'light'
+                ? '#302D29' : '#F0ECE7'
+            }};
+        }
 `
 
 export default GlobalStyles

@@ -7,7 +7,7 @@ import { Container } from './components/styles/Container.styled'
 import Tabs from './components/Tabs'
 import Top10 from './components/Top10'
 import Search from './components/Search'
-import Converter from './components/Converter'
+import Exchange from './components/Exchange'
 import CryptoWorld from './components/CryptoWorld'
 
 import GlobalStyles from './components/styles/Global'
@@ -28,8 +28,8 @@ function App() {
                     <Link to="/search">
                         <Tabs value={'search'}/>
                     </Link>
-                    <Link to="/converter">
-                        <Tabs value={'converter'}/>
+                    <Link to="/exchange">
+                        <Tabs value={'exchange'}/>
                     </Link> 
                     <Link to='cryptoworld'>
                         <Tabs value={'cryptoworld'}/>
@@ -39,7 +39,7 @@ function App() {
                 <Routes>
                     <Route exact path='/' element={ <Top10 />} />
                     <Route path='/search' element={ <Search /> } />
-                    <Route path='/converter' element={ <Converter /> } />
+                    <Route path='/exchange' element={ <Exchange /> } />
                     <Route path='/cryptoworld' element={ <CryptoWorld />} />
                 </Routes>
 
