@@ -3,11 +3,11 @@ import styled from "styled-components"
 export const StyledNotice = styled.div`
     .notice {
         padding: 0 1em;
-        margin-bottom: 4em;
+        margin-bottom: 1em;
 
         .title {
             font-size: 1rem;
-            text-align: justify;
+            text-align: center;
         }
 
         img {
@@ -33,6 +33,7 @@ export const StyledNotice = styled.div`
 
         .notice-info {
             display: flex;
+            flex-direction: column;
             justify-content: space-between;
             align-items: center;
 
@@ -44,9 +45,19 @@ export const StyledNotice = styled.div`
             
             font-size: .7rem;
             
+            .title, p {
+                text-align: center;
+            }
+            
             p {
                 color: #d49b0f;
                 margin-top: .5em;
+                font-size: .8rem;
+            }
+
+            p.by {
+                color: #fff;
+                font-size: .6rem;
             }
         }
     }

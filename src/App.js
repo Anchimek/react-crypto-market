@@ -37,6 +37,7 @@ function App() {
                 </StyledTabs>
 
                 <Routes>
+                    <Route index element={ <Top10 />} />
                     <Route exact path='/' element={ <Top10 />} />
                     <Route path='/search' element={ <Search /> } />
                     <Route path='/exchange' element={ <Exchange /> } />

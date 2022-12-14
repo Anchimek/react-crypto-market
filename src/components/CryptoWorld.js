@@ -9,27 +9,27 @@ export default function CryptoWorld() {
             method: 'GET',
             headers: {
                 'X-RapidAPI-Key': '3db32bc154msh9342f88e3634478p1c7601jsn07f27384370c',
-                'X-RapidAPI-Host': 'crypto-news-live11.p.rapidapi.com'
+		        'X-RapidAPI-Host': 'web-search24.p.rapidapi.com'
             }
-        };
-        const url = 'https://crypto-news-live11.p.rapidapi.com/all?page=1&per_page=7'
+        }
+        const url = 'https://web-search24.p.rapidapi.com/?query=cryptonews&max=10&proxy=US'
         fetch(url, options)
             .then(response => response.json())
-            .then(data => setInfoData(data))
+            .then(data => setInfoData(data.results))
             .catch(err => console.error(err));
     }, [])
-
+    
     const news = () => {
-        if(infoData.news.length > 0) {
-            return infoData.news.map( notice => {
-                return <Notice key={notice.id} notice={notice} />
+        if(infoData.length > 0) {
+            return infoData.map( ( notice, index ) => {
+                return <Notice key={index} notice={notice} />
             })
         }
     } 
 
     return (
         <div>
-            {infoData.news !== undefined && news()}
+            {infoData !== undefined && news()}
         </div>
     )
 }
